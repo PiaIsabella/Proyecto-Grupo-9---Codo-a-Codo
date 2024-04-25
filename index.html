@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundación Garritas - ¡Adopta una mascota!</title>
+  <link rel="icon" href="img/icono.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.1/css/all.css">
+  <link rel="stylesheet" href="css/style.css">
+  
+</head>
+
+<body>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <header> <!--Cabecera-->
+    <nav class="navbar navbarestilo2 navbar-light">
+      <div class="container-fluid d-flex align-items-center">
+
+        <img src="./img/logo.jpg" class="col-12 col-sm-11 col-md-6 col-lg-4 col-xl-4 logo" alt="logo">
+
+        <button class="btniniciarsecion col-12 col-sm-11 col-md-2 btn btn-outline-success bg-white text-dark"
+          data-toggle="modal" data-target="#exampleModal">Iniciar Sesion <br><i class="fa fa-paw"
+            style="font-size:24px"></i></button>
+
+
+      </div>
+    </nav>
+    <div class="p-0 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 navestilo d-flex">
+
+      <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="#organizacion">Organización</a>
+      <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="#personal">Personal</a>
+      <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="#contacto">Contacto</a>
+      <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="#adopcion">Solicitar
+        Proceso</a>
+
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog " role="document">
+        <div class="modal-content modalestilo">
+          <div class="modal-header morado1-50">
+
+            <h4 class="modal-title text-white" id="exampleModalLabel">Iniciar Sesion</h4>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form method="get" action="/pagina_de_user.php">
+            <div class="modal-body bg-white">
+
+              <label for="nombre">Usuario</label>
+              <input type="text" id="nombre" name="nombre"><br><br>
+              <label for="contraseña">Contraseña</label>
+              <input type="password" id="contraseña" name="contraseña">
+              <br><br>
+              <div class="col-9">
+                <div class="d-flex ">
+                  <img class="container-fluid mr-0 w-50 d-none d-md-flex" src="./img/gato.svg">
+                  <a class="fuentemoradaclara text-decoration-none"><strong>¿Eres nuevo?</strong></a>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer d-flex morado1-50">
+              <p data-dismiss="modal" class="col-6 cerrarboton fuentemoradaclara">Cerrar</p>
+              <button type="button" type="submit" class="iniciarboton fuentemoradaclara">Iniciar Sesion</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main> <!--Cuerpo-->
+
+    <section class="banner1 poppins"> <!--Seccion A-->
+      <div class="bannercolor w-100 d-flex justify-content-center align-items-center pt-5 pb-5">
+        <p class="text-center w-50 m-auto">En <strong>Fundación Garritas</strong>, creememos que la labor de rescate y
+          protección de los animales es una tarea de todos. Por eso, hacemos un llamado a la solidaridad para que se
+          sumen a nuestra causa a través de donaciones y colaboraciones, yaa sea de forma económica o como voluntarios
+          en
+          nuestro refugio.</p>
+      </div>
+    </section>
+
+    <section class="organizacion poppins" id="organizacion"> <!--Seccion B-->
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <h1>ORGANIZACIÓN</h1>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-sm-12 col-md-12 col-lg-6 pt-sm-3 pt-md-3">
+            <img class="img-fluid rounded-pill border border-white" src="./img/imagen3.jpg">
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6 pt-sm-3 pt-md-3">
+            <p class="text-center mx-2 mx-md-5 px-md-5"><strong>Fundación Garritas</strong> es un refugio de animales
+              que se dedica a la protección, cuidado y rescate de perros y gatos en situación de calle o abandono.
+              Contamos con un equipo de voluntarios compremetidos en brindarles un hogar temporal, atención médica y
+              alimentación adecuada, así como en buscar un hogar permanente lleno de amor y cuidados. Nuestra labor es
+              posible gracias a las donaciones y colaboraciones de personas que comparten nuestra pasión por los
+              animales. <a href="#">¡Ayudanos a seguir salvando vidas!</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="personal poppins" id="personal"> <!--Seccion C-->
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-12 mx-lg-5 px-lg-5">
+            <h1>Personal</h1>
+            <p class="text-center mx-md-3 p-md-5 mx-sm-3 p-sm-4 mx-lg-5 px-lg-5">Sofía García, Ana Flores y Paola Fernández
+                son los fundadores de Fundación Garritas. Su amor y pasión por los animales los llevó a crear este
+              refugio para perros y gatos en situación de abandono y maltrato. Cada uno de ellos aporta sus habilidades
+              y experiencia para lograr que la organización funcione de manera efectiva, con el objetivo de mejorar la
+              vida de los peludos y encontrarles un hogar amoroso. Su compromiso y dedicación hacia la protección y
+              cuidado de los animales es la esencia misma de Fundación Garritas.</p>
+          </div>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-sm-12 col-md-12 col-lg-4 pb-5">
+            <img class="img-thumbnail rounded-pill border border-dark w-75" src="./img/personal1.jpg">
+            <h6 class="py-2"><strong>Sofía García</strong></h6>
+            <a href="#">sofia.garcia@fundaciongarritas.org</a>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-4 pb-5">
+            <img class="img-thumbnail rounded-pill border border-dark w-75" src="./img/personal2.jpg">
+            <h6 class="py-2"><strong>Ana Flores</strong></h6>
+            <a href="#">ana.flores@fundaciongarritas.org</a>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-4 pb-5">
+            <img class="img-thumbnail rounded-pill border border-dark w-75" src="./img/personal3.jpg">
+            <h6 class="py-2"><strong>Paola Fernández</strong></h6>
+            <a href="#">paola.fernandez@fundaciongarritas.org</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contactanos poppins" id="contacto"> <!--Seccion D-->
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <h1>¡CONTÁCTANOS!</h1>
+        </div>
+        <div class="row align-items-center justify-content-center">
+          <form>
+            <div class="form-group">
+              <label for="nombre"></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="nombre"><i class="fas fa-user"></i>&nbsp;Nombre y Apellido</span>
+                </div>
+                <input required type="text" class="form-control" placeholder="Nombre y apellido...">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email"></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="email"><i class="fas fa-at"></i>&nbsp;Email</span>
+                </div>
+                <input required type="email" class="form-control" placeholder="nombre@gmail.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="telefono"></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="teléfono"><i class="fas fa-phone"></i>&nbsp;Teléfono</span>
+                </div>
+                <input required type="tel" class="form-control" placeholder="(123) 4 567-890">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="provincia"></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <label class="input-group-text" for="provincia"><i class="fas fa-map">&nbsp;Provincia</i></label>
+                </div>
+                <select required class="custom-select" id="provincia">
+                  <option selected>Buenos Aires</option>
+                  <option>CABA</option>
+                  <option>Catamarca</option>
+                  <option>Chaco</option>
+                  <option>Chubut</option>
+                  <option>Córdoba</option>
+                  <option>Corrientes</option>
+                  <option>Entre Ríos</option>
+                  <option>Formosa</option>
+                  <option>Jujuy</option>
+                  <option>La Pampa</option>
+                  <option>La Rioja</option>
+                  <option>Mendoza</option>
+                  <option>Misiones</option>
+                  <option>Neuquén</option>
+                  <option>Río Negro</option>
+                  <option>Salta</option>
+                  <option>San Juan</option>
+                  <option>San Luis</option>
+                  <option>Santa Cruz</option>
+                  <option>Santa Fe</option>
+                  <option>Santiago del Estero</option>
+                  <option>Tierra del Fuego, AIAS</option>
+                  <option>Tucumán</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="comentario"></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-comment"></i>&nbsp;Comentario</span>
+                </div>
+                <textarea required class="form-control" id="comentario" placeholder="Ingrese su mensaje"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subir_foto"></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="subir_foto"><i class="fas fa-file"></i>&nbsp;Subir foto</span>
+                </div>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="subir_foto">
+                  <label class="custom-file-label" for="subir_foto">Elegir archivo</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button id="enviar-consulta" type="button" class="btn btn-primary w-100"><i class="fas fa-paper-plane p-1"></i>Enviar consulta</button>
+            </div>
+            <div id="mensaje" class="text-center"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="solicitud p-5 mb-5 poppins" id="adopcion"> <!--Seccion E-->
+      <div class="container">
+        <div class="row align-items-center justify-content-center pb-5">
+          <h1>Solicitud de adopción</h1>
+        </div>
+
+        <div class=" w-50 d-flex m-auto">
+          <div class="paso m-auto paso1indicador">.</div>
+          <div class="paso m-auto paso2indicador" >.</div>
+          <div class="paso m-auto paso3indicador" >.</div>
+        </div>
+
+
+        <!--wizard de 3-->
+        
+        <form class="justify-content-center pt-5" id="formulariodeadopcion">
+          <div class="form-row">
+            <!--paso 1 -->
+            <div  class="paso1 form-group col-md-6">
+              <label for="nombreyapellido">Nombre y Apellido</label>
+              <input required type="text" class="form-control" id="nombreyapellido">
+            </div>
+
+            <div class="paso1 form-group col-md-6">
+              <label for="telefono">Teléfono</label>
+              <input required type="number" class="form-control" id="telefono">
+            </div>
+            <!--paso 2 -->
+        
+            <div class="paso2 w-50 form-group col-md-6">
+              <label for="correo">Email</label>
+              <input required type="email" class="form-control" id="correo">
+            </div>
+
+            <div class="paso2 w-50 form-group col-md-6">
+              <label for="mascotaelegida" >Mascota elegida</label>
+              <input required type="text" name="mascotaelegida" class="form-control" id="mascotaelegida">
+            </div>
+          
+            <!--paso 3 -->
+            <div class="paso3 w-100 text-center">
+              <p id="resumen" class="paso3 h3 poppins"></p>
+              <h1 class="paso3">¿Estas de acuerdo con los datos?</h1>
+              <button onclick="convertirapdf()">Exportar a PDF</button>
+              <label for="acceptotodo">¿Acepto este formulario?</label>
+              <input onchange="puedeavanzarono()" id="acceptotodo" name="acceptotodo" type="checkbox" required placeholder="accepto">
+            </div>
+
+          </div>
+          <div class="d-flex flex-row-reverse pt-4">
+            <button id="avanzar" class="btn btn-primary mx-3">Avanzar</button>
+            <button id="generarpedido" onclick="" class="btn btn-success mx-3">Generar pedido</button>
+            <img id="perritoicono" src="./img/perrito.png" width="30px" height="30px">
+            <a id="infodeadopcion" href="https://www.kiwoko.com/blogmundoanimal/adoptar-mejora-la-salud/" target="_blank">¿En que ayuda adoptando?</a>
+          </div>
+        </div>
+        </form>
+    </section>
+    <!--Extra para Api-->
+    <section class="text-center lemon mt-5">
+      <div class="w-50 m-auto perroscontenedor py-5">
+        <h1 class="pb-5">¡Nuestros peludos disponibles!</h1>
+        <img id="perrosrandom" src="">
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-white poppins mt-5"> <!--Pie-->
+    <div class="container">
+      <div class="row p-4">
+        <div class="col-md-8 py-2 mb-md-0 text-sm-center text-md-left text-lg-left">
+          <a href="#" class="mr-sm-2 mx-md-2 mx-lg-2 text-decoration-none text-white">Términos y Condiciones</a>
+          ・
+          <a href="#" class="text-decoration-none text-white ml-2">Políticas de Privacidad</a>
+        </div>
+        <div class="col-md-4 py-2 text-sm-center text-md-center text-lg-right">
+          <ul class="list-unstyled mb-0">
+            <li class="d-inline-block mr-3"><a href="#"><i class="fab fa-facebook fa-lg text-white"></i></a></li>
+            <li class="d-inline-block mr-3"><a href="#"><i class="fab fa-twitter fa-lg text-white"></i></a></li>
+            <li class="d-inline-block mr-4"><a href="#"><i class="fab fa-instagram fa-lg text-white"></i></a></li>
+          </ul>
+        </div>
+        <div class="linea"></div>
+        <div class="col-12 text-center py-2">
+          <p class="mb-0">© 2023 Todos los derechos reservados (Fundación Garritas)</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+    crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
