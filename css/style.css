@@ -1,0 +1,220 @@
+@font-face {
+    font-family: Lemon;
+    src: url(../fonts/Lemon-Regular.ttf );
+}
+@font-face {
+    font-family: Poppins;
+    src: url(../fonts/poppins.ttf );
+}
+.poppins{
+    font-family: Poppins !important;
+}
+.lemon{
+    font-family: Lemon !important;
+}
+.perroscontenedor{
+    background-color: #b097d89f;
+    width: 100% !important;
+}
+#perrosrandom{
+    overflow: hidden;
+    max-width: 30rem;
+    border-width: 122rem;
+    box-shadow: black 10px 10px 10px;
+}
+
+.modalestilo {
+    background-image: url("../img/patastexturas.png");
+}
+.morado1-50{
+    background-color: #775e9f;
+}
+.fuentemoradaclara{
+    color: #d2b4ff;
+}
+.cerrarboton{
+    background-image: url("../img/huesonegro.png");
+    padding: 1.5rem;
+    text-align: center;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-weight: bolder;
+    color: white;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    transition: transform .2s;
+    cursor: pointer;
+}
+.cerrarboton:hover{
+    transform: scale(1.2);
+
+}
+.blanco{
+    background-color: #ecdfff !important;
+}
+#perritoicono{
+    z-index: -1;
+    opacity: 1;
+    transform: translateX(150%);
+    transition: transform .5s;
+}
+#generarpedido:hover + #perritoicono{
+    opacity: 1;
+    transform: translateX(0%);
+}
+.itemnav{
+    font-family: lemon;
+    background-color: #d2b4ff;
+    text-align: center;
+    padding:1.5%;
+    transition: transform .1s;
+    cursor: pointer;
+}
+.itemnav:hover{
+    transform: scale(1.1);
+    box-shadow: black 4px 4px 4px 4px;
+    z-index: 9;
+}
+.navestilo{
+    background-color:#d2b4ff; 
+}
+.navbarestilo2{
+    background-color: #9021c7;
+}
+.iniciarboton{
+    font-weight: bolder;
+    padding: 1.5rem;
+    text-align: center;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/huesoblanco.png") !important;
+    transition: transform .2s;
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: none;
+}
+.iniciarboton:hover{
+    transform: scale(1.2);
+}
+
+.cristalizado {
+    background-color: rgba(197, 190, 159, 0.37);
+    backdrop-filter: blur(10px);
+}
+#nav_link{
+    font-size: 22px;
+}
+.banner1{
+    background-image: url("../img/imagen1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 23px;
+    padding: 10%;
+    
+}
+.btniniciarsecion{
+    font-family: lemon;
+    background-color: #775e9f !important;
+    color: white !important;
+    font-size:larger;
+    border: none !important;
+    transition: transform .5s;    
+    box-shadow: black 0px 0px;
+    transition: 1s;
+}
+.btniniciarsecion:hover{
+    transform:rotate(10deg);
+    box-shadow: black 10px 10px;
+}
+
+.bannercolor{
+    background-color:#d2b4ffbb;
+    font-size: 80%;
+}
+.organizacion{
+    padding: 2%;
+    background-color: #ecdfff;/*ajustar color, fuente, size*/
+}
+.personal{
+    padding: 2%;
+    text-align: center;
+    /*ajustar color, fuente, size*/
+}
+.contactanos{
+    padding: 2%;
+    background-color: #ecdfff;
+}
+.linea{
+    background-color: white;
+    width: 100%;
+    padding: 0.5px;
+    margin: 10px;
+}
+
+footer{
+    background-color: #9021c7;
+}
+
+
+.paso{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: black;
+}
+#contItemCarrousel{
+    
+    height: 30em;
+    overflow: hidden;
+
+}
+
+.itemCarrousel{
+   
+    height: 30em;
+    position: relative;
+
+}
+
+.tarjetaCarrousel{
+    height: 100%;
+    width: auto;
+}
+
+.flechasCarrousel{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+}
+.nombrePeludo{
+    font-size: 1.75em;
+    margin: 0.5em;
+}
+.descripcionPeludo{
+    font-size: 1.5em;
+    padding: 2em;
+}
+
+i{
+    color: black;
+}
+
+#contPuntos{
+   
+    display: flex;
+  justify-content: center;
+  font-size: 3em;
+  
+}
+
+#contPuntos > a{
+    font-size: 3em;
+    color: rgb(37, 36, 36);
+}
