@@ -1,0 +1,169 @@
+$(document).ready(function () {
+    actualizarImagen();
+    setInterval(actualizarImagen, 1000);
+
+    let pasoactual = 1;
+    $(".paso2").toggle();
+    $(".paso3").toggle();
+    $("#generarpedido").toggle();
+    $("#perritoicono").toggle();
+    $("#infodeadopcion").toggle();
+
+    function paso1() {
+        var nombreyapellido = document.getElementById("nombreyapellido").value;
+        var constraints = {
+            nombreyapellido: {
+                format: {
+                    pattern: /^[A-Za-z]+\s[A-Za-z]+$/,
+                    message: "Por favor ingrese su nombre y apellido separados por un espacio."
+                }
+            }
+        };
+        var errors = validate({ nombreyapellido: nombreyapellido }, constraints);
+        if (errors) {
+            alert(errors.nombreyapellido[0]);
+            return false;
+        }
+
+        var telefono = document.getElementById("telefono").value;
+        var constraints = {
+            telefono: {
+                format: {
+                    pattern: /^\+?[0-9]{8,14}$/,
+                    message: "Por favor ingrese un número de teléfono válido."
+                }
+            }
+        };
+        errors = validate({ telefono: telefono }, constraints);
+        if (errors) {
+            alert(errors.telefono[0]);
+            return false;
+        }
+        return true;
+    }
+
+    function paso2() {
+        console.log("paso2!");
+        var correo = document.getElementById("correo").value;
+        validate.validators.presence.message = "Es necesario que complete todos los campos requeridos.";
+
+        constraints = {
+            correo: {
+                email: {
+                    message: "Debe ingresar un correo electrónico también."
+                }
+            }
+        };
+        errors = validate({ correo: correo }, constraints);
+        if (errors) {
+            alert(errors.correo[0]);
+            return false;
+        }
+
+        var mascota = document.getElementById("mascotaelegida").value;
+
+        constraints = {
+            mascota: {
+                length: {
+                    minimum: 1,
+                    tooShort: "El tipo de mascota tiene que tener el nombre que figura en la foto o 3 palabras o más que lod escriban por ejemplo: Perro grande de color marrón",
+                    tokenizer: function (value) {
+                        return value.split(/\s+/g);
+                    }
+                }
+            }
+        };
+        errors = validate({ mascota: mascota }, constraints);
+        if (errors) {
+            alert(errors.mascota[0]);
+            return false;
+        }
+        return true;
+    }
+
+    document.getElementById("avanzar").addEventListener("click", function () {
+        var nombreyapellido = $("#nombreyapellido").val();
+        var telefono = $("#telefono").val();
+        var mascota = $("#mascotaelegida").val();
+        var correo = $("#correo").val();
+
+        switch (pasoactual) {
+            case 1:
+                let aprobadopaso1 = paso1();
+                if (aprobadopaso1 == true) {
+                    $(".paso1").toggle();
+                    $(".paso1indicador").css("background-color", "green");
+                    $(".paso2").toggle();
+                    pasoactual = 2;
+                }
+                break;
+            case 2:
+                let aprobadopaso2 = paso2();
+                if (aprobadopaso2 == true) {
+                    $(".paso2indicador").css("background-color", "green");
+                    $(".paso2").toggle();
+                    $(".paso3").toggle();
+                    pasoactual = 3;
+                    $("#resumen").text(`Yo ${nombreyapellido} Acepto adoptar una mascota de fundación garritas cuando esté disponible la siguiente descripción ${mascota} y mi número de contacto es ${telefono} con correo ${correo}`);
+                    $(".paso3indicador").css("background-color", "green");
+                    $("#avanzar").toggle();
+                    $("#infodeadopcion").toggle();
+                }
+                break;
+            case 3:
+                $("#correo").val();
+                if ($("#acceptotodo").is(":checked")) {
+                    //ESPACIO PARA PONER QUE VA A PASAR AL REALIZAR EL FORMULARIO CORRECTAMENTE!
+                }
+                break;
+        }
+    });
+
+   
+});
+
+function convertirapdf() {
+    var doc = new jsPDF();
+    var elementHTML = $("#resumen").html();
+    doc.fromHTML(elementHTML, 15, 15, {
+        "width": 170,
+    });
+    doc.save("sample-document.pdf");
+}
+
+$("#formulariodeadopcion").submit(function (e) {
+    e.preventDefault();
+});
+
+function actualizarImagen() {
+    const perrosRandom = document.getElementById("perrosrandom");
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://dog.ceo/api/breeds/image/random/1");
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+            perrosRandom.src = data.message[0];
+        } else {
+            console.error("Ha ocurrido un error al cargar la imagen");
+        }
+    };
+    xhr.send();
+}
+
+function puedeavanzarono() {
+    if ($("#acceptotodo").is(":checked")) {
+        $("#generarpedido").toggle();
+        $("#perritoicono").toggle();
+    } else {
+        $("#generarpedido").toggle();
+        $("#perritoicono").toggle();
+    }
+}
+
+$("#enviar-consulta").click(function () {
+    $("#mensaje").text("¡Tu consulta ha sido enviada!");
+});
+
+$("#generarpedido").click(function () {
+    alert("¡Su solicitud fue completada con éxito! Próximamente te llegará un e-mail con los pasos a seguir para adoptar al nuevo integrante de su familia. ¡Muchas gracias por elegir adoptar!");
+});
