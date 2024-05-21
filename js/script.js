@@ -113,7 +113,7 @@ $(document).ready(function () {
             case 3:
                 $("#correo").val();
                 if ($("#acceptotodo").is(":checked")) {
-                    //ESPACIO PARA PONER QUE VA A PASAR AL REALIZAR EL FORMULARIO CORRECTAMENTE!
+                
                 }
                 break;
         }
