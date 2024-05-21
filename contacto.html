@@ -31,14 +31,13 @@
         <button class="btniniciarsecion col-12 col-sm-11 col-md-2 btn btn-outline-success bg-white text-dark"
           data-toggle="modal" data-target="#exampleModal">Iniciar Sesion <br><i class="fa fa-paw"
             style="font-size:24px"></i></button>
-
+      
 
       </div>
     </nav>
     <div class="p-0 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 navestilo d-flex">
 
-      <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="index.html">Organización</a>
-      <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="index.html">Personal</a>
+      <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="index.html">Inicio</a>
       <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="contacto.html">Contacto</a>
       <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="peluditos.html">Solicitar
         Proceso</a>
@@ -67,14 +66,14 @@
               <br><br>
               <div class="col-9">
                 <div class="d-flex ">
-                  <img class="container-fluid mr-0 w-50 d-none d-md-flex" src="./img/gato.svg">
-                  <a class="fuentemoradaclara text-decoration-none"><strong>¿Eres nuevo?</strong></a>
+                  <img class="container-fluid mr-0 w-50 d-none d-md-flex" src="./img/gato.svg" alt="logogato">
+                  <a href="contacto.html" class="fuentemoradaclara text-decoration-none"><strong>¿Eres nuevo?</strong></a>
                 </div>
               </div>
             </div>
             <div class="modal-footer d-flex morado1-50">
               <p data-dismiss="modal" class="col-6 cerrarboton fuentemoradaclara">Cerrar</p>
-              <button type="button" type="submit" class="iniciarboton fuentemoradaclara">Iniciar Sesion</button>
+              <button type="button" class="iniciarboton fuentemoradaclara">Iniciar Sesion</button>
             </div>
           </form>
         </div>
@@ -95,7 +94,7 @@
               <label for="nombre"></label>
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="nombre"><i class="fas fa-user"></i>&nbsp;Nombre y Apellido</span>
+                  <span class="input-group-text" id="nombre_icono"><i class="fas fa-user"></i>&nbsp;Nombre y Apellido</span>
                 </div>
                 <input required type="text" class="form-control" placeholder="Nombre y apellido...">
               </div>
@@ -105,9 +104,9 @@
               <label for="email"></label>
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="email"><i class="fas fa-at"></i>&nbsp;Email</span>
+                  <span class="input-group-text" id="email_icono"><i class="fas fa-at"></i>&nbsp;Email</span>
                 </div>
-                <input required type="email" class="form-control" placeholder="nombre@gmail.com">
+                <input required type="email" id="email" class="form-control" placeholder="nombre@gmail.com">
               </div>
             </div>
 
@@ -117,7 +116,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="teléfono"><i class="fas fa-phone"></i>&nbsp;Teléfono</span>
                 </div>
-                <input required type="tel" class="form-control" placeholder="(123) 4 567-890">
+                <input required type="number" id="telefono" class="form-control" placeholder="(123) 4 567-890">
               </div>
             </div>
 
@@ -128,30 +127,30 @@
                   <label class="input-group-text" for="provincia"><i class="fas fa-map">&nbsp;Provincia</i></label>
                 </div>
                 <select required class="custom-select" id="provincia">
-                  <option selected>Buenos Aires</option>
-                  <option>CABA</option>
-                  <option>Catamarca</option>
-                  <option>Chaco</option>
-                  <option>Chubut</option>
-                  <option>Córdoba</option>
-                  <option>Corrientes</option>
-                  <option>Entre Ríos</option>
-                  <option>Formosa</option>
-                  <option>Jujuy</option>
-                  <option>La Pampa</option>
-                  <option>La Rioja</option>
-                  <option>Mendoza</option>
-                  <option>Misiones</option>
-                  <option>Neuquén</option>
-                  <option>Río Negro</option>
-                  <option>Salta</option>
-                  <option>San Juan</option>
-                  <option>San Luis</option>
-                  <option>Santa Cruz</option>
-                  <option>Santa Fe</option>
-                  <option>Santiago del Estero</option>
-                  <option>Tierra del Fuego, AIAS</option>
-                  <option>Tucumán</option>
+                  <option value="" selected>Buenos Aires</option>
+                  <option value="caba">CABA</option>
+                  <option value="catamarca">Catamarca</option>
+                  <option value="chaco">Chaco</option>
+                  <option value="chubut">Chubut</option>
+                  <option value="cordoba">Córdoba</option>
+                  <option value="corriente">Corrientes</option>
+                  <option value="entrerios">Entre Ríos</option>
+                  <option value="formosa">Formosa</option>
+                  <option value="jujuy">Jujuy</option>
+                  <option value="lapampa">La Pampa</option>
+                  <option value="larioja">La Rioja</option>
+                  <option value="mendoza">Mendoza</option>
+                  <option value="misiones">Misiones</option>
+                  <option value="neuquen">Neuquén</option>
+                  <option value="rionegro">Río Negro</option>
+                  <option value="salta">Salta</option>
+                  <option value="sanjuan">San Juan</option>
+                  <option value="sanluis">San Luis</option>
+                  <option value="santacruz">Santa Cruz</option>
+                  <option value="sntafe">Santa Fe</option>
+                  <option value="santiagodelestero">Santiago del Estero</option>
+                  <option value="tierradelfuego">Tierra del Fuego, AIAS</option>
+                  <option value="tucuman">Tucumán</option>
                 </select>
               </div>
             </div>
@@ -170,7 +169,7 @@
               <label for="subir_foto"></label>
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="subir_foto"><i class="fas fa-file"></i>&nbsp;Subir foto</span>
+                  <span class="input-group-text" id="subir_foto_icono"><i class="fas fa-file"></i>&nbsp;Subir foto</span>
                 </div>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" id="subir_foto">
@@ -186,6 +185,7 @@
         </div>
       </div>
     </section>
+  </main>
  
     
   <footer class="text-white poppins mt-5"> 
