@@ -218,3 +218,56 @@ i{
     font-size: 3em;
     color: rgb(37, 36, 36);
 }
+.cuidados .menu-lateral {
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.cuidados .menu-lateral h3 {
+    text-align: left;
+}
+
+.cuidados .menu-lateral ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cuidados .menu-lateral ul li {
+    margin-bottom: 10px;
+}
+
+.cuidados .menu-lateral ul li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.cuidados .menu-lateral ul li a:hover {
+    text-decoration: underline;
+}
+
+.cuidados .videos {
+    padding: 20px;
+}
+
+.cuidados .video-section {
+    margin-bottom: 40px;
+}
+
+.cuidados .video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cuidados .video-item {
+    flex: 1 1 calc(50% - 20px);
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .cuidados .video-item {
+        flex: 1 1 100%;
+    }
+}
