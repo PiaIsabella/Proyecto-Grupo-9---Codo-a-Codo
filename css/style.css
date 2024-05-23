@@ -270,4 +270,11 @@ i{
     .cuidados .video-item {
         flex: 1 1 100%;
     }
+    .nombrePeludo {
+        font-size: 1.5em; 
+    }
+
+    .descripcionPeludo {
+        font-size: 1em; 
+    }
 }
