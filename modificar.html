@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundación Garritas - ¡Adopta una mascota!</title>
+    <link rel="icon" href="img/icono.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.1/css/all.css">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script src="https://kit.fontawesome.com/ff67ccb901.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <header>
+
+        <div class="p-0 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 navestilo d-flex">
+            <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="index.html">PAGINA PRINCIPAL</a>
+        </div>
+    </header>
+
+    <h1>Modificar Mascotas de la lista</h1><br>
+    <form id="form-obtener-mascota">
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" required><br>
+        <button type="submit">Modificar Mascota</button> <a href="menu.html">Menu Principal</a>
+    </form>
+
+    <div id="datos-prodcutos" style="display: none;">
+        <h2>Datos de la mascota</h2>
+        <form id="form-guardar-cambios">
+            <label for="nombreModif">Nombre:</label>
+            <input type="text" id="nombreModif" required> <br>
+
+            <label for="edadModif">Edad:</label>
+            <input type="text" id="edadModif" required><br>
+
+            <label for="descripcionModif">Descripción:</label>
+            <input type="text" id="descripcionModif" required> <br>
+
+            <img id="imagen-actual" style="max-width: 200px; display: none;">
+            <img id="imagen-vista-previa" style="max-width: 200px; display: none;">
+
+            <label for="nuevaImagen">Nueva imagen de la mascota:</label>
+            <input type="file" id="nuevaImagen" name="imagen"><br>
+
+            <button type="submit">Guardar Cambios</button>
+            <a href="modificar.html">Cancelar</a>
+        </form>
+    </div>
+    <script>
+        const URL = "http://127.0.0.1:5000/"
+
+        let codigo = '';
+        let nombre = '';
+        let edad = '';
+        let descripcion = '';
+        let imagen_url = '';
+        let imagenSeleccionada = null;
+        let imagenUrlTemp = null;
+        let mostrarDatos = false;
+
+        document.getElementById('form-obtener-mascota').addEventListener('submit', obtenerMascota);
+        document.getElementById('form-guardar-cambios').addEventListener('submit', guardarCambios);
+        document.getElementById('nuevaImagen').addEventListener('change', seleccionarImagen);
+
+        function obtenerMascota (event){
+            event.preventDefault();
+            codigo = document.getElementById('codigo').value;
+            fetch(URL + 'mascotas/' + codigo)
+                .then(response => {
+                    if (response.ok){
+                    return response.json()}
+                else  {
+                    throw new Error ('Error al agregar la mascota.')
+                }
+                })
+                .then(data => {
+                    nombre = data.nombre;
+                    edad = data.edad;
+                    descripcion = data.descripcion;
+                    imagen_url = data.imagen_url;
+                    mostrarDatos = true;
+                    mostrarFormulario();
+                })
+                .catch(error => {
+                alert('Codigo no encontrado');
+            });
+        }
+
+        function mostrarFormulario() {
+            if (mostrarDatos){
+                document.getElementById('nombreModif').value = nombre;
+                document.getElementById('edadModif').value = edad;
+                document.getElementById('descripcionModif').value = descripcion;
+                const imagenActual = document.getElementById('imagen-actual');
+                if (imagen_url && !imagenSeleccionada) {
+                    imagenActual.src = './static/imagenes/' + imagen_url;
+                    imagenActual.style.display = 'block';
+                } else {
+                    imagenActual.style.display = 'none'
+                }
+                document.getElementById('datos-mascota').style.display = 'block';
+                } else {
+                    document.getElementById('datos-mascota').style.display = 'none';
+                }
+            }
+
+            function seleccionarImagen(event){
+            const file = event.target.file[0];
+            imagenSeleccionada = file;
+            imagenUrlTemp = URL.createObjectURL(file);
+
+            const imagenVistaPrevia = document.getElementById('imagen-vista-previa');
+            imagenVistaPrevia.src = imagenUrlTemp;
+            imagenVistaPrevia.style.display = 'block';
+            }
+
+            function guardarCambios(event){
+                event.preventDefault();
+
+                const formData = new FormData();
+                formData.append('codigo', codigo);
+                formData.append('nombre', document.getElementById('nombreModif').value);
+                formData.append('edad', document.getElementById('edadModif').value);
+                formData.append('descripcion', document.getElementById('descripcionModif').value);
+                if (imagenSeleccionada){
+                    formData.append('imagen', imagenSeleccionada, imagenSeleccionada.name);
+                    }
+
+                    fetch(URL + 'mascotas/' + codigo, {
+                        method: 'PUT',
+                        body: formData,
+                    })
+                    .then(response =>{
+                        if (response.ok) {
+                            return response.json()
+                        } else {
+                            throw new Error ('Error al guardar los cambios')
+                        }
+                    })
+                    .then(data =>{
+                        alert('MAscota actualizada correctamnete');
+                        limpiarForm();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error al actualizar el producto.');
+                    });
+            }
+
+            function limpiarForm(){
+                document.getElementById('codigo').value = '';
+                document.getElementById('nombreModif').value = '';
+                document.getElementById('edadModif').value = '';
+                document.getElementById('descripcionModif').value = '';
+                document.getElementById('nuevaImagen').value = '';
+
+                const imagenActual = document.getElementById('iamgen-actual');
+
+                imagenActual.style.display = 'none';
+
+                const imagenVistaPrevia = document.getElementById('imagen-vista-previa');
+                imagenVistaPrevia.style.display = 'none';
+
+                codigo = '';
+                nombre = '';
+                edad = '';
+                descripcion = '';
+                imagen_url = '';
+                imagenSeleccionada = null;
+                imagenUrlTemp = null;
+                mostrarDatos = false;
+
+                document.getElementById('datos-mascota').style.display = 'none';
+                }
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundación Garritas - ¡Adopta una mascota!</title>
+    <link rel="icon" href="img/icono.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.11.1/css/all.css">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script src="https://kit.fontawesome.com/ff67ccb901.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <header>
+
+        <div class="p-0 col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 navestilo d-flex">
+
+            <a class="col-3 col-sm-3 col-md-2 text-dark text-decoration-none  itemnav" href="index.html">PAGINA PRINCIPAL</a>
+        </div>
+    </header>
+
+    <h1>Eliminar Mascotas de la lista</h1><br>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Descripcion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table><br>
+
+    <a href="menu.html">Menu Principal</a>
+
+    <script>
+        const URL = "http://127.0.0.1:5000/"
+
+        function obtenerMascotas() {
+            fetch(URL + 'mascotas')
+            .then(response => {
+                if (response.ok){
+                    return response.json();
+                }
+            })
+            .then(data =>{
+                const mascotasTable = document.getElementById('mascotas-table').getElementsByTagName('tbody')[0];
+                mascotasTable.innerHTML = '';
+                data.forEach(mascota => {
+                    const row = mascotasTable.insertRow();
+                    row.innerHTML = `
+                    <td>${mascota.codigo}</td>
+                    <td>${msacota.edad}</td>
+                    <td>${mascota.descripcion}</td>
+                    <td><buttononclick="eliminarMascota('${mascota.codigo}')">Eliminar</button></td>`;
+                });
+            })
+            .catch(error => {
+                console.log('Error:', error);
+                alert('Error al obtener las mascotas.');
+            });
+        }
+
+        function eliminarMascota(codigo){
+            if (confirm('¿Esta seguro que quiere eliminar esta macota?')){
+                fetch(URL + `mascotas/${codigo}`, {
+                    method: 'DELETE'
+                } )
+                .then(response =>{
+                    if (response.ok){
+                        obtenerMascotas();
+                        alert('Mascota eliminada correctamente.');
+                    }
+                })
+                .catch(error =>{
+                    alert(error.message);
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', obtenerMascotas);
+    </script>
+</body>
+</html>
